@@ -1,5 +1,7 @@
 package lesson6;
 
+import org.bytedeco.javacpp.Loader;
+import org.bytedeco.javacpp.presets.cuda;
 import org.deeplearning4j.datasets.iterator.impl.MnistDataSetIterator;
 import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.nn.conf.ConvolutionMode;
@@ -31,6 +33,14 @@ public class LenetMnistExample {
     private static final Logger log = LoggerFactory.getLogger(LenetMnistExample.class);
 
     public static void main(String[] args) throws Exception {
+//        try {
+//            Loader.load(cuda.class);
+//        } catch (UnsatisfiedLinkError e) {
+//            String path = Loader.cacheResource(cuda.class,
+//                    "C:\\Users\\58307\\.javacpp\\cache\\cuda-9.2-7.1-1.4.2-windows-x86_64.jar\\org\\bytedeco\\javacpp\\windows-x86_64\\jnicuda.dll\\jnicuda.dll").getPath();
+//            new ProcessBuilder("C:/Program Files/dependencies/DependenciesGui.exe", path).start().waitFor();
+//        }
+
         int nChannels = 1; // Number of input channels
         int outputNum = 10; // The number of possible outcomes
         int batchSize = 64; // Test batch size
